@@ -491,7 +491,7 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-[#3E0014] mb-4">
-              Como a Sophia funciona?
+              Como a Sofia funciona?
             </h2>
             <p className="text-slate-600">
               Sem complicação e sem perder tempo. Comece ainda hoje.
@@ -569,7 +569,7 @@ export function LandingPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="mb-16 text-center max-w-3xl mx-auto">
               <h2 className="text-4xl font-bold text-white mb-4">
-                Por que a Sophia é diferente?
+                Por que a Sofia é diferente?
               </h2>
               <p className="text-slate-300 text-lg">
                 Uma plataforma construída por mulheres e unicamente para mulheres.
@@ -884,10 +884,10 @@ export function LandingPage() {
             </div>
           </div>
 
-          {/* Copyright */}
+
           <div className="pt-8 border-t border-slate-300">
             <p className="text-center text-slate-500 text-sm">
-              © 2026 Sophia - Plataforma de Recrutamento Feminino. Todos os direitos reservados ADS IFTM - Paracatu/MG.
+              © 2026 Sofia - Plataforma de Recrutamento Feminino. Todos os direitos reservados ao ADS IFTM - Paracatu/MG.
             </p>
             <p className="text-center text-slate-400 text-xs mt-2">
               Desenvolvido para mulheres
