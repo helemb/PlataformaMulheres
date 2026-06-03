@@ -2,6 +2,10 @@ import { motion } from "motion/react";
 import { DashboardLayout } from "../layouts/DashboardLayout";
 import { UserCircle, Briefcase, FileText, Users, Settings, Target, CheckCircle2, ChevronRight, Award, Zap, TrendingUp, BookOpen, Clock, Upload, Mail, Phone, MapPin, Calendar, Linkedin, Github } from "lucide-react";
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
 
 export function CandidateDashboard() {
   const [resumeUploaded, setResumeUploaded] = useState(true);
@@ -246,18 +250,24 @@ export function CandidateDashboard() {
             </div>
           </div>
         </motion.div>
+      </div>
+      <div className="grid mt-6 grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Formação & Competências */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="flex w-auto">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
             className="bg-white rounded-2xl p-6 border border-[#FDF0F4] shadow-sm"
           >
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-bold text-[#3E0014] flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-[#AC1634]" /> Formação
               </h3>
+              <div className="flex justify-between items-end">
+                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm"><FontAwesomeIcon className="mr-1" icon={['fas', 'pencil']} />Editar</button>
+                <button className="text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm">+ Adicionar</button>
+              </div>
             </div>
             <div className="space-y-4">
               <div className="flex gap-3">
@@ -279,18 +289,18 @@ export function CandidateDashboard() {
                 </div>
               </div>
             </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-            className="bg-white rounded-2xl p-6 border border-[#FDF0F4] shadow-sm"
-          >
-            <div className="flex justify-between items-center mb-6">
+            <hr className="mt-3" />
+
+
+            <div className="flex justify-between items-center mt-6 mb-4">
               <h3 className="text-lg font-bold text-[#3E0014] flex items-center gap-2">
                 <Target className="w-5 h-5 text-[#5B002C]" /> Competências
               </h3>
+              <div className="flex justify-between items-end">
+                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm"><FontAwesomeIcon className="mr-1" icon={['fas', 'pencil']} />Editar</button>
+                <button className="text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm">+ Adicionar</button>
+              </div>
             </div>
             <div className="flex flex-wrap gap-2">
               {[
@@ -301,47 +311,51 @@ export function CandidateDashboard() {
                 </span>
               ))}
             </div>
+
+
+
+            <hr className="mt-3" />
+
+
+
+            {/* Experiência Section */}
+
+            <div className="flex justify-between items-center mt-6 mb-4">
+              <h3 className="text-lg font-bold text-[#3E0014] flex items-center gap-2">
+                <Briefcase className="w-5 h-5 text-[#5B002C]" /> Experiência Profissional
+              </h3>
+              <div className="flex justify-between items-end">
+                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm"><FontAwesomeIcon className="mr-1" icon={['fas', 'pencil']} />Editar</button>
+                <button className="text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm">+ Adicionar</button>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              {[
+                { title: "Product Manager Sênior", company: "FintechBR", period: "Jan 2024 - Presente", desc: "Liderança de tribo de pagamentos com 4 squads. Redução de churn em 12% em 6 meses." },
+                { title: "Product Manager Pleno", company: "RetailCorp", period: "Fev 2021 - Dez 2023", desc: "Gestão do app B2B e reestruturação do funil de onboarding de novos lojistas." }
+              ].map((exp, i) => (
+                <div key={i} className="flex gap-4 group">
+                  <div className="flex flex-col items-center">
+                    <div className="w-10 h-10 rounded-full bg-[#FEF7F9] border border-[#E77291] flex items-center justify-center text-[#5B002C]">
+                      <TrendingUp className="w-5 h-5" />
+                    </div>
+                    {i === 0 && <div className="w-0.5 h-full bg-[#FDF0F4] mt-2"></div>}
+                  </div>
+                  <div className="pb-4">
+                    <h4 className="font-bold text-slate-800">{exp.title}</h4>
+                    <p className="text-sm font-medium text-[#5B002C] mb-1">{exp.company} <span className="text-slate-400 font-normal ml-2">{exp.period}</span></p>
+                    <p className="text-slate-600 text-sm leading-relaxed">{exp.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
 
 
 
 
-        {/* Experiência Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="bg-white rounded-2xl p-6 border border-[#FDF0F4] shadow-sm"
-        >
-          <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-[#3E0014] flex items-center gap-2">
-              <Briefcase className="w-5 h-5 text-[#5B002C]" /> Experiência Profissional
-            </h3>
-            <button className="text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm">+ Adicionar</button>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              { title: "Product Manager Sênior", company: "FintechBR", period: "Jan 2024 - Presente", desc: "Liderança de tribo de pagamentos com 4 squads. Redução de churn em 12% em 6 meses." },
-              { title: "Product Manager Pleno", company: "RetailCorp", period: "Fev 2021 - Dez 2023", desc: "Gestão do app B2B e reestruturação do funil de onboarding de novos lojistas." }
-            ].map((exp, i) => (
-              <div key={i} className="flex gap-4 group">
-                <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-[#FEF7F9] border border-[#E77291] flex items-center justify-center text-[#5B002C]">
-                    <TrendingUp className="w-5 h-5" />
-                  </div>
-                  {i === 0 && <div className="w-0.5 h-full bg-[#FDF0F4] mt-2"></div>}
-                </div>
-                <div className="pb-4">
-                  <h4 className="font-bold text-slate-800">{exp.title}</h4>
-                  <p className="text-sm font-medium text-[#5B002C] mb-1">{exp.company} <span className="text-slate-400 font-normal ml-2">{exp.period}</span></p>
-                  <p className="text-slate-600 text-sm leading-relaxed">{exp.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
 
 
@@ -390,7 +404,6 @@ export function CandidateDashboard() {
           </div>
 
         </div>
-
       </div>
     </DashboardLayout>
   );
