@@ -1,10 +1,7 @@
 import { motion } from "motion/react";
 import { DashboardLayout } from "../layouts/DashboardLayout";
-import { UserCircle, Briefcase, FileText, Users, Settings, Target, CheckCircle2, ChevronRight, Award, Zap, TrendingUp, BookOpen, Clock, Upload, Mail, Phone, MapPin, Calendar, Linkedin, Github } from "lucide-react";
+import { UserCircle, Briefcase, FileText, Users, Settings, Target, CheckCircle2, ChevronRight, Award, Zap, TrendingUp, BookOpen, Clock, Upload, Mail, Phone, MapPin, Calendar, Linkedin, Github, Pencil } from "lucide-react";
 import { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faUser } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 
 export function CandidateDashboard() {
@@ -161,34 +158,34 @@ export function CandidateDashboard() {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 mb-6">
             {/* Coluna 1 */}
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 min-w-0">
                 <div className="w-10 h-10 rounded-xl bg-[#FEF7F9] flex items-center justify-center text-[#AC1634] shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-semibold text-slate-500 uppercase">E-mail</p>
-                  <p className="text-sm font-medium text-slate-800">marina.silva@email.com</p>
+                  <p className="text-sm font-medium text-slate-800 break-all">marina.silva@email.com</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 min-w-0">
                 <div className="w-10 h-10 rounded-xl bg-[#FEF7F9] flex items-center justify-center text-[#AC1634] shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-semibold text-slate-500 uppercase">Telefone</p>
                   <p className="text-sm font-medium text-slate-800">(11) 98765-4321</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 min-w-0">
                 <div className="w-10 h-10 rounded-xl bg-[#FEF7F9] flex items-center justify-center text-[#AC1634] shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-semibold text-slate-500 uppercase">Localização</p>
                   <p className="text-sm font-medium text-slate-800">São Paulo, SP</p>
                 </div>
@@ -197,31 +194,31 @@ export function CandidateDashboard() {
 
             {/* Coluna 2 */}
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 min-w-0">
                 <div className="w-10 h-10 rounded-xl bg-[#FEF7F9] flex items-center justify-center text-[#AC1634] shrink-0">
                   <Briefcase className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-semibold text-slate-500 uppercase">Cargo Atual</p>
                   <p className="text-sm font-medium text-slate-800">Product Manager Sênior</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 min-w-0">
                 <div className="w-10 h-10 rounded-xl bg-[#FEF7F9] flex items-center justify-center text-[#AC1634] shrink-0">
                   <Calendar className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-semibold text-slate-500 uppercase">Experiência</p>
                   <p className="text-sm font-medium text-slate-800">8 anos</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-3 min-w-0">
                 <div className="w-10 h-10 rounded-xl bg-[#FEF7F9] flex items-center justify-center text-[#AC1634] shrink-0">
                   <Target className="w-5 h-5" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-semibold text-slate-500 uppercase">Disponibilidade</p>
                   <p className="text-sm font-medium text-slate-800">Remoto / Híbrido</p>
                 </div>
@@ -252,8 +249,9 @@ export function CandidateDashboard() {
         </motion.div>
       </div>
       <div className="grid mt-6 grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Formação & Competências */}
-        <div className="flex w-auto">
+        {/* Formação, Competências & Experiência */}
+        <div className="flex flex-col gap-6">
+          {/* Formação */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -265,7 +263,7 @@ export function CandidateDashboard() {
                 <BookOpen className="w-5 h-5 text-[#AC1634]" /> Formação
               </h3>
               <div className="flex justify-between items-end">
-                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm"><FontAwesomeIcon className="mr-1" icon={['fas', 'pencil']} />Editar</button>
+                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm inline-flex items-center gap-1"><Pencil className="w-3.5 h-3.5" />Editar</button>
                 <button className="text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm">+ Adicionar</button>
               </div>
             </div>
@@ -289,51 +287,55 @@ export function CandidateDashboard() {
                 </div>
               </div>
             </div>
+          </motion.div>
 
-            <hr className="mt-3" />
-
-
-            <div className="flex justify-between items-center mt-6 mb-4">
+          {/* Competências */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.35 }}
+            className="bg-white rounded-2xl p-6 border border-[#FDF0F4] shadow-sm"
+          >
+            <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-bold text-[#3E0014] flex items-center gap-2">
                 <Target className="w-5 h-5 text-[#5B002C]" /> Competências
               </h3>
               <div className="flex justify-between items-end">
-                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm"><FontAwesomeIcon className="mr-1" icon={['fas', 'pencil']} />Editar</button>
+                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm inline-flex items-center gap-1"><Pencil className="w-3.5 h-3.5" />Editar</button>
                 <button className="text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm">+ Adicionar</button>
               </div>
             </div>
             <div className="flex flex-wrap gap-2">
               {[
-                "Product Strategy", "Agile", "Liderança de Tribo", "Data-Driven", "UX Research", "Comunicação Não-Violenta", "Gestão de Stakeholders"
+                "Estratégia de Produtos", "Métodos Ágeis (Organização)", "Liderança de Equipes", "Decisões baseadas em Dados", "Pesquisa com Usuários (UX)", "Comunicação Não-Violenta", "Gestão de Parceiros e Diretores"
               ].map((skill, i) => (
                 <span key={i} className="px-3 py-1.5 bg-[#FFFBFC] border border-[#E77291] rounded-lg text-xs font-semibold text-slate-600 hover:border-[#5B002C]/30 hover:bg-[#FEF7F9] hover:text-[#3E0014] transition-colors cursor-default">
                   {skill}
                 </span>
               ))}
             </div>
+          </motion.div>
 
-
-
-            <hr className="mt-3" />
-
-
-
-            {/* Experiência Section */}
-
-            <div className="flex justify-between items-center mt-6 mb-4">
+          {/* Experiência Profissional */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
+            className="bg-white rounded-2xl p-6 border border-[#FDF0F4] shadow-sm"
+          >
+            <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-bold text-[#3E0014] flex items-center gap-2">
                 <Briefcase className="w-5 h-5 text-[#5B002C]" /> Experiência Profissional
               </h3>
               <div className="flex justify-between items-end">
-                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm"><FontAwesomeIcon className="mr-1" icon={['fas', 'pencil']} />Editar</button>
+                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm inline-flex items-center gap-1"><Pencil className="w-3.5 h-3.5" />Editar</button>
                 <button className="text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm">+ Adicionar</button>
               </div>
             </div>
-
             <div className="space-y-6">
               {[
-                { title: "Product Manager Sênior", company: "FintechBR", period: "Jan 2024 - Presente", desc: "Liderança de tribo de pagamentos com 4 squads. Redução de churn em 12% em 6 meses." },
-                { title: "Product Manager Pleno", company: "RetailCorp", period: "Fev 2021 - Dez 2023", desc: "Gestão do app B2B e reestruturação do funil de onboarding de novos lojistas." }
+                { title: "Gerente de Produtos Sênior", company: "FintechBR", period: "Jan 2024 - Presente", desc: "Liderança de área de pagamentos com 4 equipes de trabalho. Redução de cancelamentos em 12% em 6 meses." },
+                { title: "Gerente de Produtos Pleno", company: "RetailCorp", period: "Fev 2021 - Dez 2023", desc: "Gestão do aplicativo para empresas parceiras e reestruturação do passo a passo inicial de novos lojistas." }
               ].map((exp, i) => (
                 <div key={i} className="flex gap-4 group">
                   <div className="flex flex-col items-center">
@@ -366,13 +368,13 @@ export function CandidateDashboard() {
             <h3 className="text-lg font-bold mb-2 flex items-center gap-2">
               <Zap className="w-5 h-5 text-yellow-400" /> Vagas Recomendadas
             </h3>
-            <p className="text-[#E77291] text-sm mb-6">Selecionadas pela nossa IA com base no seu perfil, momento de carreira e aderência cultural.</p>
+            <p className="text-[#E77291] text-sm mb-6">Selecionadas pela nossa IA com base no seu perfil, momento de carreira e afinidade com a empresa.</p>
 
             <div className="space-y-4 relative z-10">
               {[
-                { title: "Group Product Manager", company: "Nubank", match: 96, type: "Híbrido - SP", tag: "Novo" },
-                { title: "Senior PM - Checkout", company: "Mercado Livre", match: 91, type: "Remoto", tag: "Em alta" },
-                { title: "Product Leader", company: "QuintoAndar", match: 88, type: "Remoto", tag: "" },
+                { title: "Desenvolvedora Web Pleno", company: "Sistemas Paracatu", match: 94, type: "Presencial - Paracatu", tag: "Novo" },
+                { title: "Analista de Dados Agrícolas", company: "AgroForte Paracatu", match: 87, type: "Híbrido - Paracatu", tag: "Em alta" },
+                { title: "Analista de TI (Infraestrutura)", company: "Mineração Vale do Ouro", match: 82, type: "Presencial - Paracatu", tag: "" },
               ].map((job, idx) => (
                 <div key={idx} className="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-white/20 transition-all cursor-pointer">
                   <div className="flex justify-between items-start mb-2">

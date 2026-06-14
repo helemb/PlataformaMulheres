@@ -7,7 +7,7 @@ export function AnalyticsPage() {
   const sidebarItems = [
     { name: "Vagas Ativas", href: "/dashboard/empresa", icon: <Briefcase className="w-5 h-5" /> },
     { name: "Banco de Talentos", href: "/dashboard/empresa/talentos", icon: <Users className="w-5 h-5" /> },
-    { name: "Analytics IA", href: "/dashboard/empresa/analytics", icon: <BarChart3 className="w-5 h-5" /> },
+    { name: "Análise de Resultados", href: "/dashboard/empresa/analytics", icon: <BarChart3 className="w-5 h-5" /> },
     { name: "Configurações", href: "/dashboard/empresa/config", icon: <Settings className="w-5 h-5" /> },
   ];
 
@@ -36,15 +36,15 @@ export function AnalyticsPage() {
       <div className="space-y-8">
         {/* Header */}
         <div>
-          <h2 className="text-2xl font-bold text-slate-800">Analytics IA</h2>
-          <p className="text-slate-500 mt-1">Insights inteligentes sobre recrutamento e performance.</p>
+          <h2 className="text-2xl font-bold text-slate-800">Análise de Resultados</h2>
+          <p className="text-slate-500 mt-1">Informações inteligentes sobre contratações e desempenho.</p>
         </div>
 
         {/* KPIs */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { label: "Taxa de Match Média", value: "87.3%", trend: "+5.2%", up: true, icon: <TrendingUp /> },
-            { label: "Tempo Médio p/ Contratar", value: "18 dias", trend: "-3 dias", up: true, icon: <Activity /> },
+            { label: "Grau de Afinidade Médio", value: "87.3%", trend: "+5.2%", up: true, icon: <TrendingUp /> },
+            { label: "Tempo Médio p/ Contratação", value: "18 dias", trend: "-3 dias", up: true, icon: <Activity /> },
             { label: "Taxa de Conversão", value: "24.8%", trend: "+2.1%", up: true, icon: <TrendingUp /> },
             { label: "Candidatas Ativas", value: "486", trend: "+124", up: true, icon: <Users /> },
           ].map((kpi, i) => (
@@ -74,7 +74,7 @@ export function AnalyticsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Candidaturas x Matches */}
           <div className="bg-white rounded-2xl p-6 border border-[#FDF0F4] shadow-sm">
-            <h3 className="text-lg font-bold text-[#3E0014] mb-6">Candidaturas vs Matches (IA)</h3>
+            <h3 className="text-lg font-bold text-[#3E0014] mb-6">Candidaturas vs Combinações (IA)</h3>
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={monthlyData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#FDF0F4" />
@@ -102,7 +102,7 @@ export function AnalyticsPage() {
                   key="line-matches"
                   type="monotone"
                   dataKey="matches"
-                  name="Matches"
+                  name="Combinações"
                   stroke="#AC1634"
                   strokeWidth={3}
                   dot={{ fill: "#AC1634", r: 5 }}
@@ -114,7 +114,7 @@ export function AnalyticsPage() {
 
           {/* Match Distribution */}
           <div className="bg-white rounded-2xl p-6 border border-[#FDF0F4] shadow-sm">
-            <h3 className="text-lg font-bold text-[#3E0014] mb-6">Distribuição de Match (IA)</h3>
+            <h3 className="text-lg font-bold text-[#3E0014] mb-6">Distribuição de Afinidade (IA)</h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
@@ -140,23 +140,23 @@ export function AnalyticsPage() {
 
         {/* Top Performing Jobs */}
         <div className="bg-white rounded-2xl p-6 border border-[#FDF0F4] shadow-sm">
-          <h3 className="text-lg font-bold text-[#3E0014] mb-6">Vagas com Melhor Performance</h3>
+          <h3 className="text-lg font-bold text-[#3E0014] mb-6">Vagas com Melhor Desempenho</h3>
           <div className="space-y-4">
             {[
-              { job: "Senior Frontend Engineer", applications: 124, matches: 98, rate: "79%" },
-              { job: "Data Scientist", applications: 98, matches: 87, rate: "89%" },
-              { job: "Product Manager Pleno", applications: 86, matches: 68, rate: "79%" },
+              { job: "Desenvolvedora Web Pleno", applications: 124, matches: 98, rate: "79%" },
+              { job: "Analista de Dados Agrícolas", applications: 98, matches: 87, rate: "89%" },
+              { job: "Designer Digital e Social Media", applications: 86, matches: 68, rate: "79%" },
             ].map((item, i) => (
               <div key={i} className="flex items-center justify-between p-4 bg-[#FFFBFC] rounded-xl border border-[#FDF0F4]">
                 <div className="flex-1">
                   <h4 className="font-bold text-[#3E0014] mb-1">{item.job}</h4>
                   <p className="text-sm text-slate-500">
-                    {item.applications} candidaturas • {item.matches} matches
+                    {item.applications} candidaturas • {item.matches} combinações
                   </p>
                 </div>
                 <div className="text-right">
                   <span className="text-2xl font-black text-[#AC1634]">{item.rate}</span>
-                  <p className="text-xs text-slate-500 font-semibold">Taxa de Match</p>
+                  <p className="text-xs text-slate-500 font-semibold">Compatibilidade Média</p>
                 </div>
               </div>
             ))}

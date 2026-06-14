@@ -38,7 +38,7 @@ export function CompanySettingsPage() {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-[#3E0014]">Perfil da Empresa</h3>
-                <p className="text-sm text-slate-500">Informações básicas e branding</p>
+                <p className="text-sm text-slate-500">Informações básicas e visual da marca</p>
               </div>
             </div>
 
@@ -90,7 +90,7 @@ export function CompanySettingsPage() {
             <div className="space-y-4">
               {[
                 { label: "Novas candidaturas", desc: "Notificar quando uma candidata se candidatar" },
-                { label: "Matches de alta relevância", desc: "Alertas de matches acima de 90%" },
+                { label: "Combinações com alta afinidade", desc: "Alertas de afinidade acima de 90%" },
                 { label: "Atualizações de produto", desc: "Novidades e melhorias da plataforma" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center justify-between p-4 bg-[#FFFBFC] rounded-xl">
@@ -129,7 +129,7 @@ export function CompanySettingsPage() {
                 Alterar senha
               </button>
               <button className="w-full text-left px-4 py-3 bg-[#FFFBFC] hover:bg-[#FEF7F9] rounded-xl text-[#3E0014] font-semibold transition-colors">
-                Autenticação de dois fatores
+                Segurança extra ao entrar (Dois fatores)
               </button>
               <button className="w-full text-left px-4 py-3 bg-[#FFFBFC] hover:bg-[#FEF7F9] rounded-xl text-[#3E0014] font-semibold transition-colors">
                 Gerenciar permissões de equipe

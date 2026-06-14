@@ -13,40 +13,40 @@ export function TalentPoolPage() {
   const talents = [
     {
       name: "Carolina Alves",
-      role: "Senior Data Scientist",
-      location: "São Paulo, SP",
+      role: "Analista de Dados Agrícolas Sênior",
+      location: "Paracatu, MG",
       experience: "8 anos",
-      skills: ["Python", "Machine Learning", "TensorFlow", "SQL"],
+      skills: ["Power BI", "Excel Avançado", "SQL", "Análise de Safra"],
       match: 98,
       img: "https://images.unsplash.com/photo-1769636929388-99eff95d3bf1?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=200&h=200&q=80",
       premium: true,
     },
     {
       name: "Juliana Santos",
-      role: "Machine Learning Engineer",
-      location: "Rio de Janeiro, RJ",
+      role: "Engenheira Agrônoma",
+      location: "Paracatu, MG",
       experience: "6 anos",
-      skills: ["PyTorch", "Deep Learning", "NLP", "Docker"],
+      skills: ["Mapeamento", "Planejamento de Safra", "Consultoria", "Agro"],
       match: 95,
       img: "https://images.unsplash.com/photo-1609371497456-3a55a205d5eb?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=200&h=200&q=80",
       premium: true,
     },
     {
       name: "Beatriz Lima",
-      role: "Data Scientist",
-      location: "Belo Horizonte, MG",
+      role: "Analista de Dados Agrícolas",
+      location: "Paracatu, MG",
       experience: "4 anos",
-      skills: ["R", "Statistics", "Data Viz", "Pandas"],
+      skills: ["Power BI", "Excel", "Estatística", "Dashboard"],
       match: 91,
       img: "https://images.unsplash.com/photo-1758874384556-cc2b9dcbb6e0?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=200&h=200&q=80",
       premium: false,
     },
     {
       name: "Amanda Costa",
-      role: "Analytics Engineer",
-      location: "Curitiba, PR",
+      role: "Auxiliar de TI e Banco de Dados",
+      location: "Paracatu, MG",
       experience: "5 anos",
-      skills: ["SQL", "dbt", "Looker", "BigQuery"],
+      skills: ["SQL", "Suporte", "Windows Server", "Planilhas"],
       match: 89,
       img: "https://images.unsplash.com/photo-1767875635163-57c7efa96e7f?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=200&h=200&q=80",
       premium: false,
@@ -79,10 +79,10 @@ export function TalentPoolPage() {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { label: "Total de Candidatas", value: "2.847", color: "text-[#3E0014]", bg: "bg-[#FEF7F9]" },
-            { label: "Matches +90%", value: "486", color: "text-[#5B002C]", bg: "bg-[#FFFBFC]" },
+            { label: "Afinidade +90%", value: "486", color: "text-[#5B002C]", bg: "bg-[#FFFBFC]" },
             { label: "Novas esta semana", value: "124", color: "text-[#AC1634]", bg: "bg-[#FDF0F4]" },
             { label: "Favoritas", value: "38", color: "text-[#7A002B]", bg: "bg-[#FEF7F9]" },
           ].map((stat, i) => (
@@ -140,13 +140,13 @@ export function TalentPoolPage() {
                   <div className="text-right">
                     <div className="bg-gradient-to-br from-[#5B002C] to-[#AC1634] text-white px-4 py-2 rounded-xl shadow-md">
                       <span className="text-2xl font-black">{talent.match}%</span>
-                      <p className="text-xs uppercase font-bold opacity-90">Match</p>
+                      <p className="text-xs uppercase font-bold opacity-90">Afinidade</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <p className="text-xs text-slate-500 font-semibold mb-2 uppercase">Skills principais</p>
+                  <p className="text-xs text-slate-500 font-semibold mb-2 uppercase">Habilidades principais</p>
                   <div className="flex flex-wrap gap-2">
                     {talent.skills.map((skill, i) => (
                       <span

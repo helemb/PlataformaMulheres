@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router";
 import { Sparkles, LogOut, Bell, Settings, UserCircle, Briefcase, FileText, Users, BarChart3, HelpCircle, Menu, X } from "lucide-react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import logoSofia from '../../imports/ChatGPT_Image_10_de_mai._de_2026__23_19_25.png';
+import logoSofia from '../../imports/logoinsta.jpeg';
 import { NotificationsPanel } from "../components/NotificationsPanel";
 
 function cn(...inputs: ClassValue[]) {
@@ -46,12 +46,12 @@ export function DashboardLayout({ children, userType, userName, userImage, sideb
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <div className="h-20 lg:h-36 flex items-center px-6 border-b border-[#FDF0F4] relative">
+        <div className="h-24 flex items-center px-6 border-b border-[#FDF0F4] relative">
           <Link to="/" className="flex items-center gap-2" onClick={() => setIsSidebarOpen(false)}>
             <img
               src={logoSofia}
               alt="Sofia Logo"
-              className="h-16 lg:h-32 w-auto object-contain drop-shadow-sm"
+              className="h-20 w-auto object-contain rounded-full mix-blend-multiply"
             />
           </Link>
           <span className="ml-auto text-xs font-semibold px-2 py-1 bg-[#FEF7F9] rounded-md text-[#5B002C] uppercase tracking-wider hidden sm:inline-block">
@@ -68,7 +68,15 @@ export function DashboardLayout({ children, userType, userName, userImage, sideb
 
         <nav className="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
           {sidebarItems.map((item) => {
-            const isActive = location.pathname.includes(item.href);
+            const isActive =
+              location.pathname === item.href ||
+              (location.pathname.startsWith(item.href + "/") &&
+                !sidebarItems.some(
+                  (other) =>
+                    other.href !== item.href &&
+                    other.href.startsWith(item.href + "/") &&
+                    location.pathname.startsWith(other.href)
+                ));
             return (
               <Link
                 key={item.name}
@@ -104,7 +112,7 @@ export function DashboardLayout({ children, userType, userName, userImage, sideb
       {/* Main Content Area */}
       <main className="flex-1 ml-0 lg:ml-72 flex flex-col min-h-screen w-full overflow-x-hidden">
         {/* Header */}
-        <header className="h-20 lg:h-36 bg-white/80 backdrop-blur-md border-b border-[#FDF0F4] sticky top-0 z-10 px-4 lg:px-8 flex items-center justify-between">
+        <header className="h-24 bg-white/80 backdrop-blur-md border-b border-[#FDF0F4] sticky top-0 z-10 px-4 lg:px-8 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setIsSidebarOpen(true)}

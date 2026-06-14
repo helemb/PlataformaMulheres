@@ -131,7 +131,7 @@ export function CandidateSettingsPage() {
                 Alterar senha
               </button>
               <button className="w-full text-left px-4 py-3 bg-[#FFFBFC] hover:bg-[#FEF7F9] rounded-xl text-[#3E0014] font-semibold transition-colors">
-                Autenticação de dois fatores
+                Segurança extra ao entrar (Dois fatores)
               </button>
               <button className="w-full text-left px-4 py-3 bg-[#FFFBFC] hover:bg-[#FEF7F9] rounded-xl text-[#3E0014] font-semibold transition-colors">
                 Gerenciar privacidade do perfil

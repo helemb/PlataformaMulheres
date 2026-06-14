@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'motion/react';
 import { Eye, EyeOff, Lock, Mail, ArrowLeft, Sparkles, Building2, UserCircle, User, Phone, Briefcase } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import logoSofia from '../../imports/ChatGPT_Image_10_de_mai._de_2026__23_19_25.png';
+import logoSofia from '../../imports/logoinsta.jpeg';
 
 export function SignupPage() {
   const [searchParams] = useSearchParams();
@@ -49,7 +49,7 @@ export function SignupPage() {
             <img
               src={logoSofia}
               alt="Sofia Logo"
-              className="h-24 sm:h-36 lg:h-48 w-auto object-contain drop-shadow-sm"
+              className="h-16 sm:h-20 lg:h-24 w-auto object-contain rounded-full mix-blend-multiply"
             />
           </div>
 
@@ -451,7 +451,7 @@ export function SignupPage() {
             <p className="text-white/80">
               {activeTab === 'candidata'
                 ? "Cadastro 100% gratuito e seguro. Comece agora mesmo!"
-                : "Processo rápido e IA integrada para matches precisos."}
+                : "Processo rápido com ajuda de inteligência artificial para combinações perfeitas."}
             </p>
           </motion.div>
         </div>
