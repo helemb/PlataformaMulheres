@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link, useSearchParams } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'motion/react';
-import { Eye, EyeOff, Lock, Mail, ArrowLeft, Sparkles, Building2, UserCircle, User, Phone, Briefcase } from 'lucide-react';
+import { ArrowLeft, Building2, UserCircle, User } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import logoSofia from '../../imports/logoinsta.jpeg';
 
@@ -11,12 +11,11 @@ export function SignupPage() {
   const [activeTab, setActiveTab] = useState<'candidata' | 'empresa'>(
     (searchParams.get('tab') as 'candidata' | 'empresa') || 'candidata'
   );
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors }, watch } = useForm();
 
-  const password = watch('password');
+  const navigate = useNavigate();
+  const { register, handleSubmit } = useForm();
+
+
 
   const onSubmit = (data: any) => {
     console.log('Dados de cadastro:', data);
@@ -28,10 +27,7 @@ export function SignupPage() {
     }
   };
 
-  const handleGoogleSignIn = () => {
-    // Simula o cadastro e autenticação com a conta Google do usuário
-    navigate('/dashboard/candidata');
-  };
+
 
   return (
     <div className="min-h-screen bg-[#FFFBFC] flex font-sans overflow-y-auto lg:overflow-hidden">
@@ -107,112 +103,65 @@ export function SignupPage() {
                 </p>
 
                 {/* Nome Completo */}
+                {/* Nome */}
                 <div className="space-y-1.5">
                   <label className="text-sm font-medium text-[#3E0014] block">
-                    Nome Completo
+                    Nome
                   </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                      <User className="h-5 w-5 text-slate-400" />
-                    </div>
-                    <input
-                      {...register('name', { required: 'Nome é obrigatório' })}
-                      type="text"
-                      placeholder="Maria da Silva"
-                      className="w-full pl-10 pr-4 py-3 bg-white border border-[#E77291] rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B002C]/20 focus:border-[#5B002C] transition-all placeholder:text-slate-400"
-                    />
-                  </div>
-                  {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name.message as string}</p>}
-                </div>
-
-                {/* E-mail */}
-                <div className="space-y-1.5">
-                  <label className="text-sm font-medium text-[#3E0014] block">
-                    E-mail
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                      <Mail className="h-5 w-5 text-slate-400" />
-                    </div>
-                    <input
-                      {...register('email', {
-                        required: 'E-mail é obrigatório',
-                        pattern: {
-                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: 'E-mail inválido'
-                        }
-                      })}
-                      type="email"
-                      placeholder="seu@email.com.br"
-                      className="w-full pl-10 pr-4 py-3 bg-white border border-[#E77291] rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B002C]/20 focus:border-[#5B002C] transition-all placeholder:text-slate-400"
-                    />
-                  </div>
-                  {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message as string}</p>}
-                </div>
-
-                {/* Telefone */}
-                <div className="space-y-1.5">
-                  <label className="text-sm font-medium text-[#3E0014] block">
-                    Telefone
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                      <Phone className="h-5 w-5 text-slate-400" />
-                    </div>
-                    <input
-                      {...register('phone', { required: 'Telefone é obrigatório' })}
-                      type="tel"
-                      placeholder="(11) 98765-4321"
-                      className="w-full pl-10 pr-4 py-3 bg-white border border-[#E77291] rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B002C]/20 focus:border-[#5B002C] transition-all placeholder:text-slate-400"
-                    />
-                  </div>
-                  {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message as string}</p>}
-                </div>
-
-                {/* Termos para candidata */}
-                <div className="flex items-start gap-2">
                   <input
-                    {...register('terms', { required: 'Você deve aceitar os termos' })}
-                    type="checkbox"
-                    id="terms-candidate"
-                    className="mt-1 w-4 h-4 rounded border-[#E77291] text-[#AC1634] focus:ring-[#AC1634] focus:ring-offset-0 cursor-pointer"
+                    {...register('nome')}
+                    type="text"
+                    placeholder="Digite seu nome"
+                    className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
                   />
-                  <label htmlFor="terms-candidate" className="text-sm text-slate-600 cursor-pointer">
-                    Aceito os{' '}
-                    <a href="#" className="font-semibold text-[#AC1634] hover:text-[#5B002C] transition-colors">
-                      Termos de Uso
-                    </a>
-                    {' '}e{' '}
-                    <a href="#" className="font-semibold text-[#AC1634] hover:text-[#5B002C] transition-colors">
-                      Política de Privacidade
-                    </a>
-                  </label>
                 </div>
-                {errors.terms && <p className="text-xs text-red-500">{errors.terms.message as string}</p>}
+
+                {/* CPF */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium text-[#3E0014] block">
+                    CPF
+                  </label>
+                  <input
+                    {...register('cpf')}
+                    type="text"
+                    placeholder="000.000.000-00"
+                    className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                  />
+                </div>
+
+                {/* Biografia */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium text-[#3E0014] block">
+                    Biografia
+                  </label>
+                  <textarea
+                    {...register('biografia')}
+                    rows={4}
+                    placeholder="Conte um pouco sobre você"
+                    className="w-full px-4 py-3 border border-[#E77291] rounded-xl resize-none"
+                  />
+                </div>
+
+                {/* Linkedin */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium text-[#3E0014] block">
+                    LinkedIn
+                  </label>
+                  <input
+                    {...register('linkedin')}
+                    type="text"
+                    placeholder="https://linkedin.com/in/seu-perfil"
+                    className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                  />
+                </div>
+
+
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 px-4 flex justify-center items-center gap-3 rounded-xl bg-white border border-[#E77291] text-slate-700 font-bold shadow-md hover:bg-slate-50 transition-all active:scale-[0.98] text-base hover:border-[#AC1634]/30"
+                  className="w-full py-3.5 px-4 flex justify-center items-center gap-2 rounded-xl text-white font-semibold shadow-lg transition-all active:scale-[0.98] bg-gradient-to-r from-[#3E0014] to-[#5B002C] hover:shadow-[#3E0014]/25 shadow-[#3E0014]/20"
                 >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24">
-                    <path
-                      fill="#4285F4"
-                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                    />
-                    <path
-                      fill="#34A853"
-                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                    />
-                    <path
-                      fill="#FBBC05"
-                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
-                    />
-                    <path
-                      fill="#EA4335"
-                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
-                    />
-                  </svg>
-                  Cadastrar-se com o Google
+                  Criar Conta
                 </button>
 
                 <p className="text-center text-sm text-slate-600 mt-6">
@@ -234,22 +183,30 @@ export function SignupPage() {
                     className="space-y-5"
                   >
                     {/* Nome da Empresa */}
+                    {/* Razão Social */}
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-[#3E0014] block">
-                        Nome da Empresa
+                        Razão Social
                       </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                          <Building2 className="h-5 w-5 text-slate-400" />
-                        </div>
-                        <input
-                          {...register('companyName', { required: 'Nome da empresa é obrigatório' })}
-                          type="text"
-                          placeholder="TechNova Corp"
-                          className="w-full pl-10 pr-4 py-3 bg-white border border-[#E77291] rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B002C]/20 focus:border-[#5B002C] transition-all placeholder:text-slate-400"
-                        />
-                      </div>
-                      {errors.companyName && <p className="text-xs text-red-500 mt-1">{errors.companyName.message as string}</p>}
+                      <input
+                        {...register('razaoSocial')}
+                        type="text"
+                        placeholder="Razão social da empresa"
+                        className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                      />
+                    </div>
+
+                    {/* Website */}
+                    <div className="space-y-1.5">
+                      <label className="text-sm font-medium text-[#3E0014] block">
+                        Website
+                      </label>
+                      <input
+                        {...register('website')}
+                        type="text"
+                        placeholder="https://empresa.com.br"
+                        className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                      />
                     </div>
 
                     {/* CNPJ */}
@@ -257,65 +214,41 @@ export function SignupPage() {
                       <label className="text-sm font-medium text-[#3E0014] block">
                         CNPJ
                       </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                          <Briefcase className="h-5 w-5 text-slate-400" />
-                        </div>
-                        <input
-                          {...register('cnpj', { required: 'CNPJ é obrigatório' })}
-                          type="text"
-                          placeholder="00.000.000/0000-00"
-                          className="w-full pl-10 pr-4 py-3 bg-white border border-[#E77291] rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B002C]/20 focus:border-[#5B002C] transition-all placeholder:text-slate-400"
-                        />
-                      </div>
-                      {errors.cnpj && <p className="text-xs text-red-500 mt-1">{errors.cnpj.message as string}</p>}
+                      <input
+                        {...register('cnpj')}
+                        type="text"
+                        placeholder="00.000.000/0000-00"
+                        className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                      />
                     </div>
 
-                    {/* E-mail Corporativo */}
+                    {/* Setor */}
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-[#3E0014] block">
-                        E-mail Corporativo
+                        Setor
                       </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                          <Mail className="h-5 w-5 text-slate-400" />
-                        </div>
-                        <input
-                          {...register('email', {
-                            required: 'E-mail é obrigatório',
-                            pattern: {
-                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                              message: 'E-mail inválido'
-                            }
-                          })}
-                          type="email"
-                          placeholder="contato@empresa.com.br"
-                          className="w-full pl-10 pr-4 py-3 bg-white border border-[#E77291] rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B002C]/20 focus:border-[#5B002C] transition-all placeholder:text-slate-400"
-                        />
-                      </div>
-                      {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message as string}</p>}
+                      <input
+                        {...register('setor')}
+                        type="text"
+                        placeholder="Tecnologia, Saúde, Educação..."
+                        className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                      />
                     </div>
 
-                    {/* Telefone Comercial */}
+                    {/* Descrição */}
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-[#3E0014] block">
-                        Telefone Comercial
+                        Descrição
                       </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                          <Phone className="h-5 w-5 text-slate-400" />
-                        </div>
-                        <input
-                          {...register('phone', { required: 'Telefone é obrigatório' })}
-                          type="tel"
-                          placeholder="(11) 3000-0000"
-                          className="w-full pl-10 pr-4 py-3 bg-white border border-[#E77291] rounded-xl text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#5B002C]/20 focus:border-[#5B002C] transition-all placeholder:text-slate-400"
-                        />
-                      </div>
-                      {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone.message as string}</p>}
+                      <textarea
+                        {...register('descricao')}
+                        rows={4}
+                        placeholder="Descreva sua empresa"
+                        className="w-full px-4 py-3 border border-[#E77291] rounded-xl resize-none"
+                      />
                     </div>
-
-                    {/* Senha */}
+                    {/*
+                   //Senha
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-[#3E0014] block">
                         Senha
@@ -350,8 +283,9 @@ export function SignupPage() {
                       </div>
                       {errors.password && <p className="text-xs text-red-500 mt-1">{errors.password.message as string}</p>}
                     </div>
-
-                    {/* Confirmar Senha */}
+                    
+                 //Confirmar Senha
+                   
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-[#3E0014] block">
                         Confirmar Senha
@@ -383,27 +317,9 @@ export function SignupPage() {
                       </div>
                       {errors.confirmPassword && <p className="text-xs text-red-500 mt-1">{errors.confirmPassword.message as string}</p>}
                     </div>
+                    */}
 
-                    {/* Termos para Empresa */}
-                    <div className="flex items-start gap-2">
-                      <input
-                        {...register('terms', { required: 'Você deve aceitar os termos' })}
-                        type="checkbox"
-                        id="terms-company"
-                        className="mt-1 w-4 h-4 rounded border-[#E77291] text-[#AC1634] focus:ring-[#AC1634] focus:ring-offset-0"
-                      />
-                      <label htmlFor="terms-company" className="text-sm text-slate-600">
-                        Aceito os{' '}
-                        <a href="#" className="font-semibold text-[#AC1634] hover:text-[#5B002C] transition-colors">
-                          Termos de Uso
-                        </a>
-                        {' '}e{' '}
-                        <a href="#" className="font-semibold text-[#AC1634] hover:text-[#5B002C] transition-colors">
-                          Política de Privacidade
-                        </a>
-                      </label>
-                    </div>
-                    {errors.terms && <p className="text-xs text-red-500">{errors.terms.message as string}</p>}
+
                   </motion.div>
                 </AnimatePresence>
 
@@ -411,7 +327,7 @@ export function SignupPage() {
                   type="submit"
                   className="w-full py-3.5 px-4 flex justify-center items-center gap-2 rounded-xl text-white font-semibold shadow-lg transition-all active:scale-[0.98] bg-gradient-to-r from-[#3E0014] to-[#5B002C] hover:shadow-[#3E0014]/25 shadow-[#3E0014]/20"
                 >
-                  Criar Conta da Empresa
+                  Criar Conta  Empresa
                 </button>
 
                 <p className="text-center text-sm text-slate-600 mt-6">

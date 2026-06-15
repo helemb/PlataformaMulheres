@@ -156,8 +156,7 @@ export function LandingPage() {
               className="max-w-xl"
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white text-[#AC1634] font-medium text-sm mb-6 border border-[#FDF0F4] shadow-sm">
-                <span className="text-base">♀</span> Exclusivo
-                para mulheres
+                <span className="text-base">♀</span> Exclusivo  para mulheres
               </div>
               <h1 className="text-4xl lg:text-5xl font-extrabold text-[#3E0014] leading-tight mb-6">
                 Oportunidades de trabalho para voltadas para mulheres{" "}
@@ -211,7 +210,7 @@ export function LandingPage() {
                   />
                   <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-md">
                     <span className="text-xs font-semibold text-[#3E0014]">
-                      ✓ Contratada via Sophia
+                      ✓ Contratada via Sofia
                     </span>
                   </div>
                 </div>
