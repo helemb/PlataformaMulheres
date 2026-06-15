@@ -26,6 +26,7 @@ export function CompanySettingsPage() {
 
         {/* Settings Sections */}
         <div className="grid grid-cols-1 gap-6">
+
           {/* Company Profile */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -125,12 +126,6 @@ export function CompanySettingsPage() {
             </div>
 
             <div className="space-y-3">
-              <button className="w-full text-left px-4 py-3 bg-[#FFFBFC] hover:bg-[#FEF7F9] rounded-xl text-[#3E0014] font-semibold transition-colors">
-                Alterar senha
-              </button>
-              <button className="w-full text-left px-4 py-3 bg-[#FFFBFC] hover:bg-[#FEF7F9] rounded-xl text-[#3E0014] font-semibold transition-colors">
-                Segurança extra ao entrar (Dois fatores)
-              </button>
               <button className="w-full text-left px-4 py-3 bg-[#FFFBFC] hover:bg-[#FEF7F9] rounded-xl text-[#3E0014] font-semibold transition-colors">
                 Gerenciar permissões de equipe
               </button>

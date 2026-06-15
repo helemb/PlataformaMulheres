@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { DashboardLayout } from "../layouts/DashboardLayout";
-import { UserCircle, Briefcase, Target, Users, Settings, User, Bell, Shield, Mail } from "lucide-react";
+import { UserCircle, Briefcase, Target, Users, Settings, User, Bell, Shield, Mail, Pencil } from "lucide-react";
 
 export function CandidateSettingsPage() {
   const sidebarItems = [
@@ -38,13 +38,19 @@ export function CandidateSettingsPage() {
                 <User className="w-6 h-6" />
               </div>
               <div>
+
                 <h3 className="text-lg font-bold text-[#3E0014]">Informações Pessoais</h3>
                 <p className="text-sm text-slate-500">Atualize seus dados básicos</p>
               </div>
             </div>
 
             <div className="space-y-4">
+              <div className="flex justify-between items-end">
+                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm inline-flex items-center gap-1"><Pencil className="w-3.5 h-3.5" />Editar</button>
+
+              </div>
               <div>
+
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Nome Completo</label>
                 <input
                   type="text"
@@ -61,10 +67,18 @@ export function CandidateSettingsPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Telefone</label>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">LinkedIn</label>
+                <input
+                  type="text"
+                  defaultValue="linkedin.com/in/marina-silva"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#AC1634] focus:ring-2 focus:ring-[#AC1634]/20 outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">Biografia</label>
                 <input
                   type="tel"
-                  defaultValue="(11) 98765-4321"
+                  defaultValue="Conte um pouco sobre você!"
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#AC1634] focus:ring-2 focus:ring-[#AC1634]/20 outline-none transition-all"
                 />
               </div>
@@ -127,12 +141,7 @@ export function CandidateSettingsPage() {
             </div>
 
             <div className="space-y-3">
-              <button className="w-full text-left px-4 py-3 bg-[#FFFBFC] hover:bg-[#FEF7F9] rounded-xl text-[#3E0014] font-semibold transition-colors">
-                Alterar senha
-              </button>
-              <button className="w-full text-left px-4 py-3 bg-[#FFFBFC] hover:bg-[#FEF7F9] rounded-xl text-[#3E0014] font-semibold transition-colors">
-                Segurança extra ao entrar (Dois fatores)
-              </button>
+
               <button className="w-full text-left px-4 py-3 bg-[#FFFBFC] hover:bg-[#FEF7F9] rounded-xl text-[#3E0014] font-semibold transition-colors">
                 Gerenciar privacidade do perfil
               </button>

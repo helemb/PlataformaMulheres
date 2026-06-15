@@ -57,151 +57,197 @@ export function SignupPage() {
             <h1 className="text-3xl sm:text-4xl font-bold text-[#3E0014] mb-2 tracking-tight">
               Crie sua conta grátis
             </h1>
-
-
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-
-              {/* Nome */}
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-[#3E0014] block">
-                  Nome
-                </label>
-                <input
-                  {...register('nome')}
-                  type="text"
-                  placeholder="Digite seu nome"
-                  className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
-                />
-              </div>
-
-              {/* CPF */}
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-[#3E0014] block">
-                  CPF
-                </label>
-                <input
-                  {...register('cpf')}
-                  type="text"
-                  placeholder="000.000.000-00"
-                  className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
-                />
-              </div>
-
-              {/* Biografia */}
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-[#3E0014] block">
-                  Biografia
-                </label>
-                <textarea
-                  {...register('biografia')}
-                  rows={4}
-                  placeholder="Conte um pouco sobre você"
-                  className="w-full px-4 py-3 border border-[#E77291] rounded-xl resize-none"
-                />
-              </div>
-
-              {/* Linkedin */}
-              <div className="space-y-1.5">
-                <label className="text-sm font-medium text-[#3E0014] block">
-                  LinkedIn
-                </label>
-                <input
-                  {...register('linkedin')}
-                  type="text"
-                  placeholder="https://linkedin.com/in/seu-perfil"
-                  className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
-                />
-              </div>
-
-
-              {/* <p className="text-center text-sm text-slate-600 mt-6">
-                Já tem uma conta?{' '}
-                <Link to="/login" className="font-semibold text-[#AC1634] hover:text-[#5B002C] transition-colors">
-                  Fazer login
-                </Link>
-              </p>
-              */}
-            </form>
-            <p className="text-center text-sm text-slate-600 mt-6">
-              Para empresas:{' '}
-
+            <p className="text-slate-600 mb-8">
+              {activeTab === 'candidata'
+                ? 'Comece sua jornada profissional com a gente.'
+                : 'Encontre os melhores talentos femininos.'}
             </p>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  transition={{ duration: 0.2 }}
-                  className="space-y-5"
+
+            {/* Toggle / Tabs */}
+            <div className="flex p-1 bg-white rounded-xl shadow-sm border border-[#FDF0F4] mb-8 relative">
+              <button
+                type="button"
+                onClick={() => setActiveTab('candidata')}
+                className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 text-sm font-semibold rounded-lg transition-all z-10 ${activeTab === 'candidata' ? 'text-[#AC1634]' : 'text-slate-500 hover:text-[#3E0014]'
+                  }`}
+              >
+                <UserCircle className="w-4 h-4" />
+                Sou Candidata
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('empresa')}
+                className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 text-sm font-semibold rounded-lg transition-all z-10 ${activeTab === 'empresa' ? 'text-[#3E0014]' : 'text-slate-500 hover:text-[#3E0014]'
+                  }`}
+              >
+                <Building2 className="w-4 h-4" />
+                Sou Empresa
+              </button>
+
+              {/* Pill Animado */}
+              <motion.div
+                className={`absolute top-1 bottom-1 w-[calc(50%-4px)] rounded-lg bg-[#FFFBFC] border ${activeTab === 'candidata' ? 'border-[#AC1634]/20' : 'border-[#3E0014]/20'
+                  } z-0 shadow-sm`}
+                initial={false}
+                animate={{
+                  left: activeTab === 'candidata' ? '4px' : 'calc(50%)',
+                }}
+                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              />
+            </div>
+
+            {activeTab === 'candidata' ? (
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <p className="text-center text-sm text-slate-600 mb-2">
+                  Preencha seus dados básicos e finalize seu cadastro rápido e seguro usando sua conta do Google.
+                </p>
+
+                {/* Nome Completo */}
+                {/* Nome */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium text-[#3E0014] block">
+                    Nome
+                  </label>
+                  <input
+                    {...register('nome')}
+                    type="text"
+                    placeholder="Digite seu nome"
+                    className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                  />
+                </div>
+
+                {/* CPF */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium text-[#3E0014] block">
+                    CPF
+                  </label>
+                  <input
+                    {...register('cpf')}
+                    type="text"
+                    placeholder="000.000.000-00"
+                    className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                  />
+                </div>
+
+                {/* Biografia */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium text-[#3E0014] block">
+                    Biografia
+                  </label>
+                  <textarea
+                    {...register('biografia')}
+                    rows={4}
+                    placeholder="Conte um pouco sobre você"
+                    className="w-full px-4 py-3 border border-[#E77291] rounded-xl resize-none"
+                  />
+                </div>
+
+                {/* Linkedin */}
+                <div className="space-y-1.5">
+                  <label className="text-sm font-medium text-[#3E0014] block">
+                    LinkedIn
+                  </label>
+                  <input
+                    {...register('linkedin')}
+                    type="text"
+                    placeholder="https://linkedin.com/in/seu-perfil"
+                    className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                  />
+                </div>
+
+
+
+                <button
+                  type="submit"
+                  className="w-full py-3.5 px-4 flex justify-center items-center gap-2 rounded-xl text-white font-semibold shadow-lg transition-all active:scale-[0.98] bg-gradient-to-r from-[#3E0014] to-[#5B002C] hover:shadow-[#3E0014]/25 shadow-[#3E0014]/20"
                 >
-                  {/* Nome da Empresa */}
-                  {/* Razão Social */}
-                  <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-[#3E0014] block">
-                      Razão Social
-                    </label>
-                    <input
-                      {...register('razaoSocial')}
-                      type="text"
-                      placeholder="Razão social da empresa"
-                      className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
-                    />
-                  </div>
+                  Criar Conta
+                </button>
 
-                  {/* Website */}
-                  <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-[#3E0014] block">
-                      Website
-                    </label>
-                    <input
-                      {...register('website')}
-                      type="text"
-                      placeholder="https://empresa.com.br"
-                      className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
-                    />
-                  </div>
+                <p className="text-center text-sm text-slate-600 mt-6">
+                  Já tem uma conta?{' '}
+                  <Link to="/login" className="font-semibold text-[#AC1634] hover:text-[#5B002C] transition-colors">
+                    Fazer login
+                  </Link>
+                </p>
+              </form>
+            ) : (
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="space-y-5"
+                  >
+                    {/* Nome da Empresa */}
+                    {/* Razão Social */}
+                    <div className="space-y-1.5">
+                      <label className="text-sm font-medium text-[#3E0014] block">
+                        Razão Social
+                      </label>
+                      <input
+                        {...register('razaoSocial')}
+                        type="text"
+                        placeholder="Razão social da empresa"
+                        className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                      />
+                    </div>
 
-                  {/* CNPJ */}
-                  <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-[#3E0014] block">
-                      CNPJ
-                    </label>
-                    <input
-                      {...register('cnpj')}
-                      type="text"
-                      placeholder="00.000.000/0000-00"
-                      className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
-                    />
-                  </div>
+                    {/* Website */}
+                    <div className="space-y-1.5">
+                      <label className="text-sm font-medium text-[#3E0014] block">
+                        Website
+                      </label>
+                      <input
+                        {...register('website')}
+                        type="text"
+                        placeholder="https://empresa.com.br"
+                        className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                      />
+                    </div>
 
-                  {/* Setor */}
-                  <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-[#3E0014] block">
-                      Setor
-                    </label>
-                    <input
-                      {...register('setor')}
-                      type="text"
-                      placeholder="Tecnologia, Saúde, Educação..."
-                      className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
-                    />
-                  </div>
+                    {/* CNPJ */}
+                    <div className="space-y-1.5">
+                      <label className="text-sm font-medium text-[#3E0014] block">
+                        CNPJ
+                      </label>
+                      <input
+                        {...register('cnpj')}
+                        type="text"
+                        placeholder="00.000.000/0000-00"
+                        className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                      />
+                    </div>
 
-                  {/* Descrição */}
-                  <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-[#3E0014] block">
-                      Descrição
-                    </label>
-                    <textarea
-                      {...register('descricao')}
-                      rows={4}
-                      placeholder="Descreva sua empresa"
-                      className="w-full px-4 py-3 border border-[#E77291] rounded-xl resize-none"
-                    />
-                  </div>
-                  {/*
+                    {/* Setor */}
+                    <div className="space-y-1.5">
+                      <label className="text-sm font-medium text-[#3E0014] block">
+                        Setor
+                      </label>
+                      <input
+                        {...register('setor')}
+                        type="text"
+                        placeholder="Tecnologia, Saúde, Educação..."
+                        className="w-full px-4 py-3 border border-[#E77291] rounded-xl"
+                      />
+                    </div>
+
+                    {/* Descrição */}
+                    <div className="space-y-1.5">
+                      <label className="text-sm font-medium text-[#3E0014] block">
+                        Descrição
+                      </label>
+                      <textarea
+                        {...register('descricao')}
+                        rows={4}
+                        placeholder="Descreva sua empresa"
+                        className="w-full px-4 py-3 border border-[#E77291] rounded-xl resize-none"
+                      />
+                    </div>
+                    {/*
                    //Senha
                     <div className="space-y-1.5">
                       <label className="text-sm font-medium text-[#3E0014] block">
@@ -274,24 +320,24 @@ export function SignupPage() {
                     */}
 
 
-                </motion.div>
-              </AnimatePresence>
+                  </motion.div>
+                </AnimatePresence>
 
-              <button
-                type="submit"
-                className="w-full py-3.5 px-4 flex justify-center items-center gap-2 rounded-xl text-white font-semibold shadow-lg transition-all active:scale-[0.98] bg-gradient-to-r from-[#3E0014] to-[#5B002C] hover:shadow-[#3E0014]/25 shadow-[#3E0014]/20"
-              >
-                Criar Conta
-              </button>
+                <button
+                  type="submit"
+                  className="w-full py-3.5 px-4 flex justify-center items-center gap-2 rounded-xl text-white font-semibold shadow-lg transition-all active:scale-[0.98] bg-gradient-to-r from-[#3E0014] to-[#5B002C] hover:shadow-[#3E0014]/25 shadow-[#3E0014]/20"
+                >
+                  Criar Conta  Empresa
+                </button>
 
-              <p className="text-center text-sm text-slate-600 mt-6">
-                Já tem uma conta?{' '}
-                <Link to="/login?tab=empresa" className="font-semibold text-[#AC1634] hover:text-[#5B002C] transition-colors">
-                  Fazer login
-                </Link>
-              </p>
-            </form>
-
+                <p className="text-center text-sm text-slate-600 mt-6">
+                  Já tem uma conta?{' '}
+                  <Link to="/login?tab=empresa" className="font-semibold text-[#AC1634] hover:text-[#5B002C] transition-colors">
+                    Fazer login
+                  </Link>
+                </p>
+              </form>
+            )}
           </motion.div>
         </div>
       </div>
