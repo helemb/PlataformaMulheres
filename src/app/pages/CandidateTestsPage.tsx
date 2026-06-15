@@ -13,8 +13,8 @@ export function CandidateTestsPage() {
 
   const tests = [
     {
-      title: "Avaliação de Soft Skills",
-      description: "Teste de personalidade e habilidades interpessoais",
+      title: "Avaliação de Habilidades Pessoais (Soft Skills)",
+      description: "Teste de personalidade e jeito de lidar com as pessoas",
       duration: "15 min",
       status: "completed",
       score: 92,
@@ -27,15 +27,15 @@ export function CandidateTestsPage() {
       score: 85,
     },
     {
-      title: "Análise de Perfil Comportamental",
-      description: "Mapeamento de características profissionais",
+      title: "Mapeamento de características de trabalho",
+      description: "Entenda suas principais forças no ambiente profissional",
       duration: "10 min",
       status: "pending",
       score: null,
     },
     {
-      title: "Teste Técnico - Frontend",
-      description: "Conhecimentos em React, TypeScript e CSS",
+      title: "Teste de Criação de Sites (Frontend)",
+      description: "Conhecimentos práticos de programação de telas (React, TypeScript e CSS)",
       duration: "45 min",
       status: "pending",
       score: null,
@@ -83,10 +83,10 @@ export function CandidateTestsPage() {
               <Brain className="w-6 h-6 text-[#E77291]" />
             </div>
             <div>
-              <h3 className="text-lg font-bold mb-2">Insights da IA sobre seu perfil</h3>
+              <h3 className="text-lg font-bold mb-2">Conselhos da Inteligência Artificial sobre seu perfil</h3>
               <p className="text-slate-200 leading-relaxed">
-                Suas habilidades em resolução de problemas e pensamento analítico estão acima da média. Recomendamos
-                completar o teste técnico de Frontend para maximizar suas chances em vagas de desenvolvimento.
+                Sua facilidade em resolver problemas e raciocínio rápido estão muito boas. Recomendamos
+                concluir o teste de Criação de Sites (Frontend) para aumentar muito suas chances em vagas de desenvolvimento de telas.
               </p>
             </div>
           </div>

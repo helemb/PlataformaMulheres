@@ -14,7 +14,7 @@ export function CandidateCommunityPage() {
   const posts = [
     {
       author: "Carolina Mendes",
-      role: "Product Manager",
+      role: "Gerente de Produtos (Product Manager)",
       avatar: "https://images.unsplash.com/photo-1769636929388-99eff95d3bf1?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=100&h=100&q=80",
       time: "2h atrás",
       content: "Acabei de receber uma proposta incrível através da Iara! O processo foi super transparente e respeitoso. Gratidão a todas que compartilharam dicas aqui! 💜",
@@ -23,7 +23,7 @@ export function CandidateCommunityPage() {
     },
     {
       author: "Juliana Costa",
-      role: "UX Designer",
+      role: "Designer de Páginas e Aplicativos (UX Designer)",
       avatar: "https://images.unsplash.com/photo-1609371497456-3a55a205d5eb?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=100&h=100&q=80",
       time: "5h atrás",
       content: "Alguém mais fazendo transição de carreira? Estou migrando de design gráfico para UX e adoraria trocar experiências!",
@@ -32,7 +32,7 @@ export function CandidateCommunityPage() {
     },
     {
       author: "Beatriz Santos",
-      role: "Frontend Developer",
+      role: "Desenvolvedora Frontend (Criação de Telas)",
       avatar: "https://images.unsplash.com/photo-1758874384556-cc2b9dcbb6e0?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=100&h=100&q=80",
       time: "1 dia atrás",
       content: "Dica: Atualizem seus perfis regularmente! A IA da plataforma melhora muito as recomendações quando mantemos tudo atualizado 🚀",
@@ -119,13 +119,13 @@ export function CandidateCommunityPage() {
           <div className="bg-white rounded-2xl p-6 border border-[#FDF0F4] shadow-sm">
             <div className="flex items-center gap-2 mb-6">
               <TrendingUp className="w-5 h-5 text-[#AC1634]" />
-              <h3 className="text-lg font-bold text-[#3E0014]">Trending</h3>
+              <h3 className="text-lg font-bold text-[#3E0014]">Assuntos do Momento</h3>
             </div>
             <div className="space-y-4">
               {trending.map((item, i) => (
                 <div key={i} className="flex items-center justify-between p-3 bg-[#FFFBFC] rounded-xl hover:bg-[#FEF7F9] transition-colors cursor-pointer">
                   <span className="font-semibold text-[#5B002C]">{item.tag}</span>
-                  <span className="text-sm text-slate-500">{item.posts} posts</span>
+                  <span className="text-sm text-slate-500">{item.posts} publicações</span>
                 </div>
               ))}
             </div>

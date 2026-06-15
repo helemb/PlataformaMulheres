@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'motion/react';
 import { Eye, EyeOff, Lock, Mail, ArrowLeft, Sparkles, Building2, UserCircle } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
-import logoSofia from '../../imports/ChatGPT_Image_10_de_mai._de_2026__23_19_25.png';
+import logoSofia from '../../imports/logoinsta.jpeg';
 
 export function LoginPage() {
   const [searchParams] = useSearchParams();
@@ -44,7 +44,7 @@ export function LoginPage() {
             <img
               src={logoSofia}
               alt="Sofia Logo"
-              className="h-24 sm:h-36 lg:h-48 w-auto object-contain drop-shadow-sm"
+              className="h-16 sm:h-20 lg:h-24 w-auto object-contain rounded-full mix-blend-multiply"
             />
           </div>
 
@@ -243,7 +243,7 @@ export function LoginPage() {
             <p className="text-white/80">
               {activeTab === 'candidata'
                 ? "Nossa IA avalia suas habilidades reais além do currículo."
-                : "Match inteligente focado em hard e soft skills com redução de vieses."}
+                : "Combinação perfeita focada em suas habilidades pessoais e técnicas para um processo seletivo mais justo."}
             </p>
           </motion.div>
         </div>

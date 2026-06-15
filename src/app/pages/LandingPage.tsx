@@ -7,7 +7,6 @@ import {
   Brain,
   Zap,
   Target,
-  Search,
   Users,
   Shield,
   Award,
@@ -20,7 +19,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import logoSofia from "../../imports/ChatGPT_Image_10_de_mai._de_2026__23_19_25.png";
+import logoSofia from "../../imports/logoinsta.jpeg";
 import { useState } from "react";
 
 export function LandingPage() {
@@ -80,12 +79,12 @@ export function LandingPage() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#FDF0F4] shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-44">
+          <div className="flex justify-between items-center h-24">
             <div className="flex items-center gap-2">
               <img
                 src={logoSofia}
                 alt="Sofia Logo"
-                className="h-48 w-auto object-contain drop-shadow-sm"
+                className="h-20 w-auto object-contain rounded-full mix-blend-multiply"
               />
             </div>
 
@@ -574,12 +573,12 @@ export function LandingPage() {
               <p className="text-slate-300 text-lg">
                 Uma plataforma construída por mulheres e unicamente para mulheres.
 
-                Diante dos nuances e desafios do mercado de
-                trabalho, visamos ajudar mulheres a encontrarem uma oportunidade de trabalho mais assertiva e ao mesmo tempo empresas responsáveis a encontrarem candidatas devidamente qualificadas.
+                Diante dos detalhes e desafios do mercado de
+                trabalho, ajudamos mulheres a encontrar um trabalho de forma mais certeira e ao mesmo tempo empresas responsáveis a encontrarem candidatas qualificadas.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div className="flex flex-wrap justify-center gap-6">
               {[
                 { icon: <Users />, title: "Foco no Feminino" },
                 { icon: <Sparkles />, title: "Criação de Curriculo" },
@@ -592,7 +591,7 @@ export function LandingPage() {
               ].map((diff, i) => (
                 <div
                   key={i}
-                  className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all cursor-default group"
+                  className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all cursor-default group w-full sm:w-60"
                 >
                   <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#5B002C]/40 to-[#AC1634]/40 flex items-center justify-center mb-4 border border-white/10 text-[#FEF7F9] group-hover:scale-110 transition-transform">
                     {diff.icon}
@@ -641,7 +640,7 @@ export function LandingPage() {
                 {[
                   "Criar currículo otimizado com a ajuda da nossa tecnologia",
                   "Receber vagas exclusivas para seu perfil",
-                  "Feedback detalhado sobre aderência às vagas",
+                  "Retornos detalhados sobre a afinidade com as vagas",
                 ].map((item, i) => (
                   <li
                     key={i}
@@ -676,7 +675,7 @@ export function LandingPage() {
                 {[
                   "Publicar vagas e gerenciar fluxo sem esforço",
                   "Filtrar candidatas ranqueadas por habilidades e experiências de mercado",
-                  "Perfis focados em soft/hard skills",
+                  "Perfis focados em habilidades pessoais e técnicas",
                   "Selo gerado pela Secretaria da Mulher de Paracatu - MG para empresas comprometidas com a inclusão feminina",
                 ].map((item, i) => (
                   <li
@@ -781,7 +780,7 @@ export function LandingPage() {
                 <img
                   src={logoSofia}
                   alt="Sofia Logo"
-                  className="h-48 w-auto object-contain"
+                  className="h-16 w-auto object-contain rounded-full mix-blend-multiply"
                 />
               </div>
               <p className="text-slate-600 text-sm leading-relaxed">

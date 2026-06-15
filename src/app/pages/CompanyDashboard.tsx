@@ -40,7 +40,7 @@ export function CompanyDashboard() {
           {[
             { title: "Vagas Ativas", value: "12", trend: "+2", trendColor: "text-emerald-500", icon: <Briefcase />, bg: "bg-[#FEF7F9]", color: "text-[#3E0014]" },
             { title: "Candidaturas", value: "486", trend: "+124", trendColor: "text-emerald-500", icon: <Users />, bg: "bg-[#FFFBFC]", color: "text-[#5B002C]" },
-            { title: "Matches Gerados (IA)", value: "85%", trend: "Alto", trendColor: "text-emerald-500", icon: <TrendingUp />, bg: "bg-[#FDF0F4]", color: "text-[#AC1634]" },
+            { title: "Combinações Geradas (IA)", value: "85%", trend: "Alto", trendColor: "text-emerald-500", icon: <TrendingUp />, bg: "bg-[#FDF0F4]", color: "text-[#AC1634]" },
           ].map((metric, i) => (
             <motion.div 
               key={i}
@@ -75,22 +75,23 @@ export function CompanyDashboard() {
               </div>
               
               <div className="overflow-x-auto">
-                <table className="w-full text-left">
+                <table className="w-full min-w-[700px] text-left">
                   <thead className="bg-[#FFFBFC] text-slate-500 text-xs uppercase font-bold tracking-wider">
                     <tr>
                       <th className="px-6 py-4">Vaga</th>
                       <th className="px-6 py-4">Modalidade</th>
-                      <th className="px-6 py-4">Match IA Médio</th>
+                      <th className="px-6 py-4">Compatibilidade Média</th>
                       <th className="px-6 py-4">Status</th>
                       <th className="px-6 py-4 text-right">Ação</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#FFFBFC]">
                     {[
-                      { role: "Senior Frontend Engineer", dept: "Engenharia", mode: "Remoto", match: "94%", status: "Ativa", statusColor: "text-emerald-600 bg-emerald-50", icon: <CheckCircle2 className="w-3 h-3" /> },
-                      { role: "Product Manager Pleno", dept: "Produto", mode: "Híbrido (SP)", match: "88%", status: "Em andamento", statusColor: "text-[#AC1634] bg-[#FEF7F9]", icon: <Clock className="w-3 h-3" /> },
-                      { role: "Data Scientist", dept: "Dados", mode: "Remoto", match: "91%", status: "Ativa", statusColor: "text-emerald-600 bg-emerald-50", icon: <CheckCircle2 className="w-3 h-3" /> },
-                      { role: "UX Researcher", dept: "Design", mode: "Presencial (RJ)", match: "N/A", status: "Pausada", statusColor: "text-slate-600 bg-slate-100", icon: <Play className="w-3 h-3 rotate-90" /> },
+                      { role: "Desenvolvedora Web Pleno", dept: "Desenvolvimento/TI", mode: "Presencial", match: "94%", status: "Ativa", statusColor: "text-emerald-600 bg-emerald-50", icon: <CheckCircle2 className="w-3 h-3" /> },
+                      { role: "Analista de Dados Agrícolas", dept: "Dados/Agro", mode: "Híbrido", match: "87%", status: "Em andamento", statusColor: "text-[#AC1634] bg-[#FEF7F9]", icon: <Clock className="w-3 h-3" /> },
+                      { role: "Designer Digital e Social Media", dept: "Design/Marketing", mode: "Presencial", match: "89%", status: "Ativa", statusColor: "text-emerald-600 bg-emerald-50", icon: <CheckCircle2 className="w-3 h-3" /> },
+                      { role: "Engenheira Agrônoma", dept: "Campo/Agronomia", mode: "Presencial", match: "85%", status: "Ativa", statusColor: "text-emerald-600 bg-emerald-50", icon: <CheckCircle2 className="w-3 h-3" /> },
+                      { role: "Analista de Suporte de Sistemas (ERP)", dept: "Suporte/Sistemas", mode: "Presencial", match: "78%", status: "Pausada", statusColor: "text-slate-600 bg-slate-100", icon: <Play className="w-3 h-3 rotate-90" /> },
                     ].map((job, idx) => (
                       <tr key={idx} className="hover:bg-[#FFFBFC] transition-colors">
                         <td className="px-6 py-4">
@@ -129,20 +130,20 @@ export function CompanyDashboard() {
                
                <div className="flex justify-between items-center mb-6 relative z-10">
                  <h3 className="text-lg font-bold flex items-center gap-2">
-                   <TrendingUp className="w-5 h-5 text-[#AC1634]" /> Ranking IA
+                   <TrendingUp className="w-5 h-5 text-[#AC1634]" /> Ordem de Afinidade (IA)
                  </h3>
-                 <span className="text-xs font-semibold bg-white/10 px-2 py-1 rounded-md">Vaga: Data Sci...</span>
+                 <span className="text-xs font-semibold bg-white/10 px-2 py-1 rounded-md">Vaga: Analista de Dados...</span>
                </div>
                
                <p className="text-slate-300 text-sm mb-6 relative z-10">
-                 Candidatas com maior aderência cultural e técnica para a vaga selecionada.
+                 Candidatas que mais se parecem com o que a vaga e a empresa procuram.
                </p>
 
                <div className="space-y-4 relative z-10">
                  {[
-                   { name: "Carolina Alves", role: "Sênior Data Scientist", match: 98, img: "https://images.unsplash.com/photo-1769636929388-99eff95d3bf1?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=100&h=100&q=80" },
-                   { name: "Juliana Santos", role: "Machine Learning Eng", match: 95, img: "https://images.unsplash.com/photo-1609371497456-3a55a205d5eb?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=100&h=100&q=80" },
-                   { name: "Beatriz Lima", role: "Data Scientist", match: 91, img: "https://images.unsplash.com/photo-1758874384556-cc2b9dcbb6e0?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=100&h=100&q=80" },
+                   { name: "Carolina Alves", role: "Analista de Dados Agrícolas Sênior", match: 98, img: "https://images.unsplash.com/photo-1769636929388-99eff95d3bf1?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=100&h=100&q=80" },
+                   { name: "Juliana Santos", role: "Engenheira Agrônoma", match: 95, img: "https://images.unsplash.com/photo-1609371497456-3a55a205d5eb?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=100&h=100&q=80" },
+                   { name: "Beatriz Lima", role: "Analista de Dados Agrícolas", match: 91, img: "https://images.unsplash.com/photo-1758874384556-cc2b9dcbb6e0?crop=entropy&cs=tinysrgb&fit=facearea&facepad=2&w=100&h=100&q=80" },
                  ].map((candidate, idx) => (
                    <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer group">
                      <div className="flex items-center gap-3">
@@ -157,7 +158,7 @@ export function CompanyDashboard() {
                      </div>
                      <div className="text-right">
                        <span className="text-[#AC1634] font-black text-sm">{candidate.match}%</span>
-                       <p className="text-[10px] text-slate-400 uppercase font-bold">Match</p>
+                       <p className="text-[10px] text-slate-400 uppercase font-bold">Compatibilidade</p>
                      </div>
                    </div>
                  ))}

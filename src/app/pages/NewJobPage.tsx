@@ -81,7 +81,7 @@ export function NewJobPage() {
                   value={formData.title}
                   onChange={handleChange}
                   required
-                  placeholder="Ex: Senior Frontend Engineer"
+                  placeholder="Ex: Desenvolvedora Web Pleno"
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#AC1634] focus:ring-2 focus:ring-[#AC1634]/20 outline-none transition-all"
                 />
               </div>
@@ -324,11 +324,11 @@ export function NewJobPage() {
                 <Sparkles className="w-6 h-6 text-[#E77291]" />
               </div>
               <div>
-                <h3 className="text-lg font-bold mb-2">Nossa IA está pronta para ajudar!</h3>
+                <h3 className="text-lg font-bold mb-2">Nossa inteligência artificial está pronta para ajudar!</h3>
                 <p className="text-slate-200 leading-relaxed">
                   Assim que você publicar essa vaga, nossa inteligência artificial começará a analisar milhares de
                   perfis para encontrar as candidatas com maior compatibilidade. Você receberá notificações em tempo
-                  real de matches acima de 85%.
+                  real de afinidade acima de 85%.
                 </p>
               </div>
             </div>
