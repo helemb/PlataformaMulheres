@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { DashboardLayout } from "../layouts/DashboardLayout";
-import { Briefcase, Users, BarChart3, Settings, Building2, Bell, Shield } from "lucide-react";
+import { Briefcase, Users, BarChart3, Settings, Building2, Bell, Shield, Pencil } from "lucide-react";
 
 export function CompanySettingsPage() {
   const sidebarItems = [
@@ -44,6 +44,9 @@ export function CompanySettingsPage() {
             </div>
 
             <div className="space-y-4">
+              <div className="flex justify-end items-center">
+                <button className="text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm inline-flex items-center gap-1"><Pencil className="w-3.5 h-3.5" />Editar</button>
+              </div>
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Nome da Empresa</label>
                 <input

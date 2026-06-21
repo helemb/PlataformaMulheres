@@ -45,9 +45,8 @@ export function CandidateSettingsPage() {
             </div>
 
             <div className="space-y-4">
-              <div className="flex justify-between items-end">
-                <button className="mr-4 text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm inline-flex items-center gap-1"><Pencil className="w-3.5 h-3.5" />Editar</button>
-
+              <div className="flex justify-end items-center">
+                <button className="text-[#AC1634] hover:text-[#7A002B] font-semibold text-sm inline-flex items-center gap-1"><Pencil className="w-3.5 h-3.5" />Editar</button>
               </div>
               <div>
 
